@@ -22,7 +22,7 @@ export const Header = () => {
               class="searchInput"
               placeholder="Recherchez une recette, un ingrédient..."
             />
-            <div class="suggestions" style="display: none; position: absolute; background: #ffffff; z-index: 10; width: 90%;  overflow-y: auto;"></div>
+            <div class="suggestions" style="display: none; position: absolute; background: #ffffff; z-index: 10; width: 90%; overflow-y: auto;"></div>
             <button class="searchButton">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>

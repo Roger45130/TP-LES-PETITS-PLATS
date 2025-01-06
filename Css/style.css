@@ -306,3 +306,49 @@ html, body {
     color: #7A7A7A;
     width: 100%;
 }
+
+.selection__Dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.selectionsDropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 203px;
+    min-width: 150px;
+    height: 53px;
+    padding: 10px 15px;
+    gap: 10px;
+    background-color: #FFD15B;
+    border-radius: 10px;
+    font-family: "Manrope", serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    color: #000000;
+}
+
+.subtitle__SelectionDropdown {
+    flex-grow: 1;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+}
+
+.SelectionDropdown {
+    font-size: 1rem;
+    cursor: pointer;
+    color: #000000;
+}
+
+.dropdown-item {
+    font-family: "Manrope", serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    color: #000000;
+}

@@ -1,5 +1,5 @@
 import { Header } from "../Components/Header.js";
-import { Main } from "../Components/Main.js";
+import { Main, initDropdownListeners } from "../Components/Main.js";
 import { getData } from "../Utils/Api.js";
 
 document.body.innerHTML = `
@@ -83,11 +83,7 @@ searchButton.addEventListener("click", async () => {
                         <div class="ingredientName">
                           <div class="name">${ingredient.ingredient}</div>
                           <div class="quantity">${
-                            ingredient.quantity
-                              ? `${ingredient.quantity} ${
-                                  ingredient.unit || ""
-                                }`
-                              : ""
+                            ingredient.quantity ? `${ingredient.quantity} ${ingredient.unit || ""}` : ""
                           }</div>
                         </div>
                       `
@@ -104,3 +100,6 @@ searchButton.addEventListener("click", async () => {
     recipePresentation.style.display = "block";
   }
 });
+
+// Initialize dropdown listeners
+await initDropdownListeners();
