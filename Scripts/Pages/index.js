@@ -2,6 +2,16 @@ import { Header } from "../Components/Header.js";
 import { Main, initDropdownListeners } from "../Components/Main.js";
 import { getData } from "../Utils/Api.js";
 
+// Fonction pour effacer les paramètres de l'URL
+const clearURLParams = () => {
+  const url = new URL(window.location.href);
+  url.search = ""; // Efface tous les paramètres de l'URL
+  history.replaceState(null, "", url.toString());
+};
+
+// Effacer les paramètres de l'URL lors du chargement initial de la page
+clearURLParams();
+
 document.body.innerHTML = `
   <div class="wrapper">
     ${Header()}
