@@ -11,19 +11,19 @@ export const Main = async () => {
           <section class="ingredientsNav" style="position: relative;">
             <h3 class="titleIngredients">Ingrédients</h3>
             <i class="fa-solid fa-angle-down"></i>
-            <div class="listIngredients" style="display: none; position: absolute; top: 100%; left: 0; width: 150px; max-height: 200px; overflow-y: auto; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
+            <div class="listIngredients" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
           </section>
           <!-- Section pour la navigation par appareils -->
           <section class="appareilsNav" style="position: relative;">
             <h3 class="titleAppareils">Appareils</h3>
             <i class="fa-solid fa-angle-down"></i>
-            <div class="listAppareils" style="display: none; position: absolute; top: 100%; left: 0; width: 150px; max-height: 200px; overflow-y: auto; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
+            <div class="listAppareils" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white;box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
           </section>
           <!-- Section pour la navigation par ustensiles -->
           <section class="ustensilesNav" style="position: relative;">
             <h3 class="titleUstensiles">Ustensiles</h3>
             <i class="fa-solid fa-angle-down"></i>
-            <div class="listUstensiles" style="display: none; position: absolute; top: 100%; left: 0; width: 150px; max-height: 200px; overflow-y: auto; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
+            <div class="listUstensiles" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
           </section>
         </div>
         <!-- Titre pour le nombre de recettes -->

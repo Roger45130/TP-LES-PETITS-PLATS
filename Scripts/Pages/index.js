@@ -15,6 +15,14 @@ const suggestionsBox = document.querySelector(".suggestions");
 const recipePresentation = document.querySelector("#recipePresentation");
 const recipeResults = document.querySelector("#recipeResults");
 
+// Fonction pour mettre à jour l'URL avec les paramètres de recherche
+const updateURL = (key, value) => {
+  const url = new URL(window.location.href);
+  url.searchParams.set(key, value);
+  history.replaceState(null, "", url.toString());
+};
+
+// Gestion de l'entrée dans la barre de recherche
 searchInput.addEventListener("input", async (event) => {
   const query = event.target.value.trim().toLowerCase();
 
@@ -35,11 +43,15 @@ searchInput.addEventListener("input", async (event) => {
 
     suggestionsBox.innerHTML = suggestions;
     suggestionsBox.style.display = "block";
+
+    // Mettre à jour l'URL avec la recherche
+    updateURL("search", query);
   } else {
     suggestionsBox.style.display = "none";
   }
 });
 
+// Gestion du clic sur le bouton de recherche
 searchButton.addEventListener("click", async () => {
   const query = searchInput.value.trim().toLowerCase();
 
@@ -98,8 +110,37 @@ searchButton.addEventListener("click", async () => {
       .join("");
 
     recipePresentation.style.display = "block";
+
+    // Mettre à jour l'URL avec la recherche
+    updateURL("search", query);
   }
 });
 
-// Initialize dropdown listeners
+// Fonction pour mettre à jour l'URL lors de la sélection dans les menus dropdown
+const updateDropdownURL = (key, value) => {
+  const url = new URL(window.location.href);
+  const currentValues = url.searchParams.get(key)
+    ? url.searchParams.get(key).split(",")
+    : [];
+  if (!currentValues.includes(value)) {
+    currentValues.push(value);
+  }
+  url.searchParams.set(key, currentValues.join(","));
+  history.replaceState(null, "", url.toString());
+};
+
+// Initialize dropdown listeners avec gestion des mises à jour URL
 await initDropdownListeners();
+document.querySelectorAll(".listIngredients, .listAppareils, .listUstensiles").forEach((dropdown) => {
+  dropdown.addEventListener("click", (event) => {
+    if (event.target.textContent) {
+      const key =
+        dropdown.classList.contains("listIngredients")
+          ? "ingredients"
+          : dropdown.classList.contains("listAppareils")
+          ? "appliances"
+          : "ustensils";
+      updateDropdownURL(key, event.target.textContent.trim().toLowerCase());
+    }
+  });
+});
