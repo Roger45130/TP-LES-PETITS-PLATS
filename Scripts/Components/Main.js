@@ -8,19 +8,22 @@ export const Main = async () => {
         <!-- Conteneur pour les menus de navigation -->
         <div class="list">
           <!-- Section pour la navigation par ingrédients -->
-          <section class="ingredientsNav">
+          <section class="ingredientsNav" style="position: relative;">
             <h3 class="titleIngredients">Ingrédients</h3>
             <i class="fa-solid fa-angle-down"></i>
+            <div class="listIngredients" style="display: none; position: absolute; top: 100%; left: 0; width: 150px; max-height: 200px; overflow-y: auto; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
           </section>
           <!-- Section pour la navigation par appareils -->
-          <section class="appareilsNav">
+          <section class="appareilsNav" style="position: relative;">
             <h3 class="titleAppareils">Appareils</h3>
             <i class="fa-solid fa-angle-down"></i>
+            <div class="listAppareils" style="display: none; position: absolute; top: 100%; left: 0; width: 150px; max-height: 200px; overflow-y: auto; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
           </section>
           <!-- Section pour la navigation par ustensiles -->
-          <section class="ustensilesNav">
+          <section class="ustensilesNav" style="position: relative;">
             <h3 class="titleUstensiles">Ustensiles</h3>
             <i class="fa-solid fa-angle-down"></i>
+            <div class="listUstensiles" style="display: none; position: absolute; top: 100%; left: 0; width: 150px; max-height: 200px; overflow-y: auto; background-color: white; border: 1px solid #ccc; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;"></div>
           </section>
         </div>
         <!-- Titre pour le nombre de recettes -->
@@ -38,60 +41,45 @@ export const Main = async () => {
   `;
 };
 
-// Fonction pour gérer les événements des dropdowns
+// Fonction pour gérer les événements des menus dropdown
 export const initDropdownListeners = async () => {
-  // Sélection des éléments principaux (ingrédients, appareils, ustensiles)
-  const ingredientsNav = document.querySelector(".ingredientsNav");
-  const appareilsNav = document.querySelector(".appareilsNav");
-  const ustensilesNav = document.querySelector(".ustensilesNav");
-  const recipeResults = document.querySelector("#recipeResults");
+  const data = await getData(); // Récupérer les données JSON
 
-  // Fonction pour créer et afficher un dropdown
-  const dropdownHandler = async (targetClass, dataKey) => {
-    const data = await getData(); // Récupérer les données JSON
-    const items = new Set(); // Ensemble pour stocker les valeurs uniques
+  // Fonction pour remplir les listes déroulantes
+  const populateDropdown = (dataKey, className) => {
+    const uniqueItems = new Set();
 
-    // Remplir les éléments en fonction de la clé (ingredients, appliance, ustensils)
     data.recipes.forEach((recipe) => {
       if (dataKey === "ingredients") {
-        recipe.ingredients.forEach((ingredient) => items.add(ingredient.ingredient));
+        recipe.ingredients.forEach((ingredient) => uniqueItems.add(ingredient.ingredient));
       } else if (dataKey === "appliance") {
-        items.add(recipe.appliance);
+        uniqueItems.add(recipe.appliance);
       } else if (dataKey === "ustensils") {
-        recipe.ustensils.forEach((ustensil) => items.add(ustensil));
+        recipe.ustensils.forEach((ustensil) => uniqueItems.add(ustensil));
       }
     });
 
-    // Créer un conteneur pour la liste déroulante
-    const dropdown = document.createElement("div");
-    dropdown.className = "dropdown";
-    dropdown.style.position = "absolute"; // Positionner sous l'élément parent
-    dropdown.style.top = "100%"; // Juste en dessous de l'élément parent
-    dropdown.style.backgroundColor = "#FFFFFF"; // Couleur de fond
-    dropdown.style.maxHeight = "250px"; // Limiter la hauteur
-    dropdown.style.overflowY = "auto"; // Activer le scroll si nécessaire
-    dropdown.style.width = "195px"; // Largeur fixe
-    dropdown.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)"; // Ombre pour le style
+    const dropdown = document.querySelector(`.${className}`);
+    dropdown.innerHTML = ""; // Réinitialiser le contenu
 
-    // Ajouter chaque élément de la liste déroulante
-    Array.from(items).forEach((item) => {
-      const dropdownItem = document.createElement("div");
-      dropdownItem.className = "dropdown-item";
-      dropdownItem.textContent = item; // Texte de l'élément
-      dropdownItem.style.padding = "10px"; // Espacement
-      dropdownItem.style.cursor = "pointer"; // Curseur pointer
+    Array.from(uniqueItems).forEach((item) => {
+      const option = document.createElement("div");
+      option.className = className.slice(4); // Ex: "listIngredients"
+      option.textContent = item;
+      option.style.cursor = "pointer";
+      option.style.padding = "10px";
 
       // Changer la couleur de fond au survol
-      dropdownItem.addEventListener("mouseenter", () => {
-        dropdownItem.style.backgroundColor = "#FFD15B";
+      option.addEventListener("mouseenter", () => {
+        option.style.backgroundColor = "#FFD15B";
       });
 
-      dropdownItem.addEventListener("mouseleave", () => {
-        dropdownItem.style.backgroundColor = "#FFFFFF";
+      option.addEventListener("mouseleave", () => {
+        option.style.backgroundColor = "#FFFFFF";
       });
 
       // Action lorsque l'utilisateur clique sur un élément
-      dropdownItem.addEventListener("click", async () => {
+      option.addEventListener("click", async () => {
         const selectionDropdown = document.querySelector(".selection__Dropdown");
         const selectionDiv = document.createElement("div");
         selectionDiv.className = "selectionsDropdown";
@@ -107,31 +95,22 @@ export const initDropdownListeners = async () => {
         });
 
         selectionDropdown.appendChild(selectionDiv); // Ajouter l'élément sélectionné
-        dropdown.remove(); // Fermer la liste déroulante
+
+        dropdown.style.display = "none"; // Fermer la liste déroulante
         updateRecipes(); // Mettre à jour les recettes
       });
 
-      dropdown.appendChild(dropdownItem); // Ajouter l'élément au dropdown
+      dropdown.appendChild(option);
     });
 
-    const targetElement = document.querySelector(`.${targetClass}`);
-
-    // Supprimer toute ancienne liste déroulante
-    const existingDropdown = targetElement.querySelector(".dropdown");
-    if (existingDropdown) {
-      existingDropdown.remove();
-    }
-
-    targetElement.appendChild(dropdown); // Ajouter la nouvelle liste déroulante
+    dropdown.style.display = "block"; // Afficher la liste déroulante
   };
 
-  // Mettre à jour les recettes affichées selon les sélections
-  const updateRecipes = async () => {
-    const data = await getData(); // Récupérer les données
+  // Fonction pour mettre à jour les recettes affichées selon les sélections
+  const updateRecipes = () => {
     const selectedItems = Array.from(document.querySelectorAll(".subtitle__SelectionDropdown"))
-      .map((el) => el.textContent); // Récupérer les éléments sélectionnés
+      .map((el) => el.textContent);
 
-    // Filtrer les recettes correspondant aux sélections
     const filteredRecipes = data.recipes.filter((recipe) => {
       return selectedItems.every((item) => {
         return (
@@ -142,7 +121,7 @@ export const initDropdownListeners = async () => {
       });
     });
 
-    // Mettre à jour le conteneur des recettes
+    const recipeResults = document.querySelector("#recipeResults");
     recipeResults.innerHTML = filteredRecipes
       .map(
         (recipe) => `
@@ -187,8 +166,16 @@ export const initDropdownListeners = async () => {
       .join("");
   };
 
-  // Ajouter des gestionnaires d'événements pour chaque menu
-  ingredientsNav.addEventListener("click", () => dropdownHandler("ingredientsNav", "ingredients"));
-  appareilsNav.addEventListener("click", () => dropdownHandler("appareilsNav", "appliance"));
-  ustensilesNav.addEventListener("click", () => dropdownHandler("ustensilesNav", "ustensils"));
+  // Ajouter des gestionnaires d'événements pour les menus
+  document.querySelector(".titleIngredients").addEventListener("click", () => {
+    populateDropdown("ingredients", "listIngredients");
+  });
+
+  document.querySelector(".titleAppareils").addEventListener("click", () => {
+    populateDropdown("appliance", "listAppareils");
+  });
+
+  document.querySelector(".titleUstensiles").addEventListener("click", () => {
+    populateDropdown("ustensils", "listUstensiles");
+  });
 };
