@@ -42,23 +42,9 @@ html, body {
     margin: 0;
 }
 
-.circle {
-    position: absolute;
-    padding-left: 15px;
-}
-
-.circleExterieur {
-    position: absolute;
-    border : 2px solide #FFFFFF;
-    width: 22.05px;
-    height: 21.25px;
-}
-
-.subtitle__h2 {
-    font-size: 24px;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    margin-left: 69px;
+.LogoLesPetitsPlats{
+    width: 207px;
+    height: 25.26px;
 }
 
 .titleResearch {
@@ -189,6 +175,11 @@ html, body {
     border-bottom-right-radius: 11px;
     border-bottom-left-radius: 11px;
     z-index: 2;
+    font-family: "Manrope", serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    color: #1B1B1B;
 }
 
 .titleIngredients, .titleAppareils, .titleUstensiles {
@@ -385,12 +376,12 @@ html, body {
 }
 
 .searchDropdown {
-    padding-left: 50px; /* Laisser de la place pour l'icône */
     border: 1px solid #C6C6C6;
     border-radius: 11px;
-    width: 100px;
+    width: 150px;
     height: 36px;
     z-index: 1;
+    margin: 0 auto;
 }
   
 .rechercheDropdown {
@@ -404,25 +395,3 @@ html, body {
     width: 13.5px;
     height: 14px;
 }
-/* 
-.searchDropdown {
-    display:block;
-    position: relative;
-    z-index: 2;
-    padding:0;
-    margin:0;
-    border: 1px solid #C6C6C6;
-    border-radius: 11px;
-    width: 150px;
-    height: 36px;
-}
-
-.searchGroupe {
-    position: relative;
-    z-index: 2;
-    list-style:none;
-    text-align: center;
-    
-    float:right;
-    
-} */

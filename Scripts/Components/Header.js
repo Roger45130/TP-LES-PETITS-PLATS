@@ -8,13 +8,13 @@ export const Header = () => {
         />
         <div class="overlay">
           <div class="logo">
-            <h2 class="subtitle__h2">Les petits plats</h2>
-            <div class="circle">
-              <div class="circleExterieur">
-                <div class="circleInterieur"></div>
-              </div>
-            </div>
+            <img
+            src="Assets/Logo/LogoLesPetitsPlats.png"
+            alt="Logo Le Petits Plats"
+            class="LogoLesPetitsPlats"
+            />
           </div>
+        </div>
           <h1
             class="titleResearch">
             Cherchez parmi plus de 1500 recettes du quotidien, simples et
