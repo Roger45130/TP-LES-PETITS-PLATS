@@ -7,51 +7,48 @@ export const Main = async () => {
       <div class="choicemenu">
         <!-- Conteneur pour les menus de navigation -->
         <div class="list">
-          <!-- Section pour la navigation par ingrédients -->
-          <section class="ingredientsNav" style="position: relative;">
+            <!-- Section pour la navigation par ingrédients -->
+            <section class="ingredientsNav" style="position: relative;">
             <h3 class="titleIngredients">Ingrédients</h3>
             <i class="fa-solid fa-angle-down"></i>
-            <div class="listIngredients" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;">
-              <div class="search-bar" style="display: flex; align-items: center; margin-bottom: 10px;">
-                <input 
-                  type="text" 
-                  placeholder="Rechercher un ingrédient" 
-                  style="width: 100%; border: 1px solid #C6C6C6; border-radius: 2px; padding: 5px;" 
-                />
-                <i class="fa-solid fa-magnifying-glass" style="margin-left: 5px; color: #C6C6C6;"></i>
+            <div class="search">
+              <div class="searchGroupe" style="z-index: 11;"> <!-- Z-index augmenté -->
+                <input class="searchDropdown" type="text" placeholder=" ">
+                <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
               </div>
             </div>
-          </section>
-          <!-- Section pour la navigation par appareils -->
-          <section class="appareilsNav" style="position: relative;">
-            <h3 class="titleAppareils">Appareils</h3>
-            <i class="fa-solid fa-angle-down"></i>
-            <div class="listAppareils" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;">
-              <div class="search-bar" style="display: flex; align-items: center; margin-bottom: 10px;">
-                <input 
-                  type="text" 
-                  placeholder="Rechercher un appareil" 
-                  style="width: 100%; border: 1px solid #C6C6C6; border-radius: 2px; padding: 5px;" 
-                />
-                <i class="fa-solid fa-magnifying-glass" style="margin-left: 5px; color: #C6C6C6;"></i>
-              </div>
+            <div class="listIngredients" style="display: none; position: absolute; top: 90%; left: 0; width: 182px; max-height: 200px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
             </div>
           </section>
-          <!-- Section pour la navigation par ustensiles -->
-          <section class="ustensilesNav" style="position: relative;">
-            <h3 class="titleUstensiles">Ustensiles</h3>
-            <i class="fa-solid fa-angle-down"></i>
-            <div class="listUstensiles" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;">
-              <div class="search-bar" style="display: flex; align-items: center; margin-bottom: 10px;">
-                <input 
-                  type="text" 
-                  placeholder="Rechercher un ustensile" 
-                  style="width: 100%; border: 1px solid #C6C6C6; border-radius: 2px; padding: 5px;" 
-                />
-                <i class="fa-solid fa-magnifying-glass" style="margin-left: 5px; color: #C6C6C6;"></i>
+
+            <!-- Section pour la navigation par appareils -->
+            <section class="appareilsNav" style="position: relative;">
+              <h3 class="titleAppareils">Appareils</h3>
+              <i class="fa-solid fa-angle-down"></i>
+              <div class="search">
+              <div class="searchGroupe" style="z-index: 11;"> <!-- Z-index augmenté -->
+                <input class="searchDropdown" type="text" placeholder=" ">
+                <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
               </div>
             </div>
-          </section>
+            <div class="listAppareils" style="display: none; position: absolute; top: 90%; left: 0; width: 182px; max-height: 200px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
+            </div>
+            </section>
+
+            <!-- Section pour la navigation par ustensiles -->
+            <section class="ustensilesNav" style="position: relative;">
+              <h3 class="titleUstensiles">Ustensiles</h3>
+              <i class="fa-solid fa-angle-down"></i>
+              <div class="search">
+              <div class="searchGroupe" style="z-index: 11;"> <!-- Z-index augmenté -->
+                <input class="searchDropdown" type="text" placeholder=" ">
+                <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
+              </div>
+            </div>
+            <div class="listUstensiles" style="display: none; position: absolute; top: 90%; left: 0; width: 182px; max-height: 200px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
+            </div>
+            </section>
+            
         </div>
         <!-- Titre pour le nombre de recettes -->
         <div class="TitleText">

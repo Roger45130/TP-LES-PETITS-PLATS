@@ -7,8 +7,13 @@ export const Header = () => {
           class="HeaderPicture"
         />
         <div class="overlay">
-          <div class="logo" style="position: absolute; top: 51px; left: 69px">
+          <div class="logo">
             <h2 class="subtitle__h2">Les petits plats</h2>
+            <div class="circle">
+              <div class="circleExterieur">
+                <div class="circleInterieur"></div>
+              </div>
+            </div>
           </div>
           <h1
             class="titleResearch">

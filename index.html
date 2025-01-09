@@ -20,6 +20,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Css/style.css" />
     <title>Les Petits Plats | Home</title>
   </head>
@@ -34,6 +35,11 @@
         <div class="overlay">
           <div class="logo">
             <h2 class="subtitle__h2">Les petits plats</h2>
+            <div class="circle">
+              <div class="circleExterieur">
+                <div class="circleInterieur"></div>
+              </div>
+            </div>
           </div>
           <h1 class="titleResearch">
             Cherchez parmi plus de 1500 recettes du quotidien, simples et
@@ -60,44 +66,38 @@
             <section class="ingredientsNav" style="position: relative;">
               <h3 class="titleIngredients">Ingrédients</h3>
               <i class="fa-solid fa-angle-down"></i>
-              <div class="listIngredients" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;">
-                <div class="search-bar" style="display: flex; align-items: center; margin-bottom: 10px;">
-                  <input 
-                    type="text" 
-                    placeholder="Rechercher un ingrédient" 
-                    style="width: 100%; border: 1px solid #C6C6C6; border-radius: 2px; padding: 5px;" 
-                  />
-                  <i class="fa-solid fa-magnifying-glass" style="margin-left: 5px; color: #C6C6C6;"></i>
+              <div class="search">
+                <div class="searchGroupe">
+                  <input class="searchDropdown" type="text" placeholder=" ">
+                  <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
                 </div>
+              </div>
+              <div class="listIngredients" style="display: none; position: absolute; top: 90%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
               </div>
             </section>
             <!-- Section pour la navigation par appareils -->
             <section class="appareilsNav" style="position: relative;">
               <h3 class="titleAppareils">Appareils</h3>
               <i class="fa-solid fa-angle-down"></i>
-              <div class="listAppareils" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;">
-                <div class="search-bar" style="display: flex; align-items: center; margin-bottom: 10px;">
-                  <input 
-                    type="text" 
-                    placeholder="Rechercher un appareil" 
-                    style="width: 100%; border: 1px solid #C6C6C6; border-radius: 2px; padding: 5px;" 
-                  />
-                  <i class="fa-solid fa-magnifying-glass" style="margin-left: 5px; color: #C6C6C6;"></i>
+              <div class="search">
+                <div class="searchGroupe">
+                  <input class="searchDropdown" type="text" placeholder=" ">
+                  <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
                 </div>
+              </div>
+              <div class="listAppareils" style="display: none; position: absolute; top: 90%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
               </div>
             </section>
             <!-- Section pour la navigation par ustensiles -->
             <section class="ustensilesNav" style="position: relative;">
               <h3 class="titleUstensiles">Ustensiles</h3>
               <i class="fa-solid fa-angle-down"></i>
-              <div class="listUstensiles" style="display: none; position: absolute; top: 100%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10;">
-                <div class="search-bar" style="display: flex; align-items: center; margin-bottom: 10px;">
-                  <input 
-                    type="text" 
-                    placeholder="Rechercher un ustensile" 
-                    style="width: 100%; border: 1px solid #C6C6C6; border-radius: 2px; padding: 5px;" 
-                  />
-                  <i class="fa-solid fa-magnifying-glass" style="margin-left: 5px; color: #C6C6C6;"></i>
+              <div class="listUstensiles" style="display: none; position: absolute; top: 90%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
+              </div>
+              <div class="search">
+                <div class="searchGroupe">
+                  <input class="searchDropdown" type="text" placeholder=" ">
+                  <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
                 </div>
               </div>
             </section>

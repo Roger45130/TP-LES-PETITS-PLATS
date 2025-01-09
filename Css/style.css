@@ -42,6 +42,18 @@ html, body {
     margin: 0;
 }
 
+.circle {
+    position: absolute;
+    padding-left: 15px;
+}
+
+.circleExterieur {
+    position: absolute;
+    border : 2px solide #FFFFFF;
+    width: 22.05px;
+    height: 21.25px;
+}
+
 .subtitle__h2 {
     font-size: 24px;
     color: #FFFFFF;
@@ -163,7 +175,10 @@ html, body {
     border-radius: 11px;
     background-color: #FFFFFF;
     justify-content: space-around;
-    align-items: baseline
+    align-items: baseline;
+    flex-direction: row;
+    flex-wrap: wrap;
+    z-index: 3;
 }
 
 .listIngredients, .listAppareils, .listUstensiles {
@@ -173,6 +188,7 @@ html, body {
     justify-content: center;
     border-bottom-right-radius: 11px;
     border-bottom-left-radius: 11px;
+    z-index: 2;
 }
 
 .titleIngredients, .titleAppareils, .titleUstensiles {
@@ -362,3 +378,51 @@ html, body {
     line-height: 19.12px;
     color: #000000;
 }
+
+.searchGroupe {
+    position: relative;
+    z-index: 11; /* Plus élevé pour passer par-dessus */
+}
+
+.searchDropdown {
+    padding-left: 50px; /* Laisser de la place pour l'icône */
+    border: 1px solid #C6C6C6;
+    border-radius: 11px;
+    width: 100px;
+    height: 36px;
+    z-index: 1;
+}
+  
+.rechercheDropdown {
+    position: absolute;
+    right: 10px; /* Place l'icône à l'intérieur du champ */
+    top: 50%; /* Centrage vertical */
+    transform: translateY(-50%);
+    pointer-events: auto; /* Rendre cliquable */
+    color: #ccc; /* Couleur de l'icône */
+    font-size: 1rem; /* Taille de l'icône */
+    width: 13.5px;
+    height: 14px;
+}
+/* 
+.searchDropdown {
+    display:block;
+    position: relative;
+    z-index: 2;
+    padding:0;
+    margin:0;
+    border: 1px solid #C6C6C6;
+    border-radius: 11px;
+    width: 150px;
+    height: 36px;
+}
+
+.searchGroupe {
+    position: relative;
+    z-index: 2;
+    list-style:none;
+    text-align: center;
+    
+    float:right;
+    
+} */
