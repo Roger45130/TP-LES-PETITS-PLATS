@@ -1,4 +1,5 @@
 import { getData } from "../Utils/Api.js";
+import { Dropdown } from "../Utils/Dropdown.js";
 
 // Fonction principale qui retourne le code HTML du composant principal
 export const Main = async () => {
@@ -65,14 +66,15 @@ export const Main = async () => {
   `;
 };
 
+
 // Fonction pour gérer les événements des menus dropdown
 export const initDropdownListeners = async () => {
   const data = await getData(); // Récupérer les données JSON
-
+  
   // Fonction pour remplir les listes déroulantes
   const populateDropdown = (dataKey, className) => {
     const uniqueItems = new Set();
-
+    
     data.recipes.forEach((recipe) => {
       if (dataKey === "ingredients") {
         recipe.ingredients.forEach((ingredient) => uniqueItems.add(ingredient.ingredient));
@@ -82,10 +84,11 @@ export const initDropdownListeners = async () => {
         recipe.ustensils.forEach((ustensil) => uniqueItems.add(ustensil));
       }
     });
-
+    
+    Dropdown();
     const dropdown = document.querySelector(`.${className}`);
     dropdown.innerHTML = ""; // Réinitialiser le contenu
-
+    
     Array.from(uniqueItems).forEach((item) => {
       const option = document.createElement("div");
       option.className = className.slice(4); // Ex: "listIngredients"
