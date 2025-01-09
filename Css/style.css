@@ -17,10 +17,11 @@ html, body {
 }
 
 .HeaderPicture {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     filter: brightness(0.7);
+    position: relative;
 }
 
 .overlay {
@@ -161,7 +162,6 @@ html, body {
     padding: 17px 16px;
     border-radius: 11px;
     background-color: #FFFFFF;
-    align-items: center;
     justify-content: space-around;
     align-items: baseline
 }
