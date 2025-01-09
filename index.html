@@ -62,45 +62,49 @@
         <div class="choicemenu">
           <!-- Conteneur pour les menus de navigation -->
           <div class="list">
+            
             <!-- Section pour la navigation par ingrédients -->
             <section class="ingredientsNav" style="position: relative;">
               <h3 class="titleIngredients">Ingrédients</h3>
               <i class="fa-solid fa-angle-down"></i>
               <div class="search">
-                <div class="searchGroupe">
+                <div class="searchGroupe" style="z-index: 11;"> <!-- Z-index augmenté -->
                   <input class="searchDropdown" type="text" placeholder=" ">
                   <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
                 </div>
               </div>
-              <div class="listIngredients" style="display: none; position: absolute; top: 90%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
+              <div class="listIngredients" style="display: none; position: absolute; top: 90%; left: 0; width: 182px; max-height: 200px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
               </div>
             </section>
-            <!-- Section pour la navigation par appareils -->
-            <section class="appareilsNav" style="position: relative;">
-              <h3 class="titleAppareils">Appareils</h3>
-              <i class="fa-solid fa-angle-down"></i>
-              <div class="search">
-                <div class="searchGroupe">
+  
+              <!-- Section pour la navigation par appareils -->
+              <section class="appareilsNav" style="position: relative;">
+                <h3 class="titleAppareils">Appareils</h3>
+                <i class="fa-solid fa-angle-down"></i>
+                <div class="search">
+                <div class="searchGroupe" style="z-index: 11;"> <!-- Z-index augmenté -->
                   <input class="searchDropdown" type="text" placeholder=" ">
                   <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
                 </div>
               </div>
-              <div class="listAppareils" style="display: none; position: absolute; top: 90%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
+              <div class="listAppareils" style="display: none; position: absolute; top: 90%; left: 0; width: 182px; max-height: 200px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
               </div>
-            </section>
-            <!-- Section pour la navigation par ustensiles -->
-            <section class="ustensilesNav" style="position: relative;">
-              <h3 class="titleUstensiles">Ustensiles</h3>
-              <i class="fa-solid fa-angle-down"></i>
-              <div class="listUstensiles" style="display: none; position: absolute; top: 90%; left: 0; width: 195px; max-height: 200px; overflow-y: auto; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
-              </div>
-              <div class="search">
-                <div class="searchGroupe">
+              </section>
+  
+              <!-- Section pour la navigation par ustensiles -->
+              <section class="ustensilesNav" style="position: relative;">
+                <h3 class="titleUstensiles">Ustensiles</h3>
+                <i class="fa-solid fa-angle-down"></i>
+                <div class="search">
+                <div class="searchGroupe" style="z-index: 11;"> <!-- Z-index augmenté -->
                   <input class="searchDropdown" type="text" placeholder=" ">
                   <i class="fa-solid fa-magnifying-glass rechercheDropdown"></i>
                 </div>
               </div>
-            </section>
+              <div class="listUstensiles" style="display: none; position: absolute; top: 90%; left: 0; width: 182px; max-height: 200px; background-color: white; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); z-index: 10; padding-top: 40px;">
+              </div>
+              </section>
+              
           </div>
           <!-- Titre pour le nombre de recettes -->
           <div class="TitleText">
