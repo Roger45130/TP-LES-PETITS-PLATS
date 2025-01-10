@@ -85,7 +85,7 @@ export const initDropdownListeners = async () => {
       }
     });
     
-    Dropdown();
+    // Dropdown();
     const dropdown = document.querySelector(`.${className}`);
     dropdown.innerHTML = ""; // Réinitialiser le contenu
     
